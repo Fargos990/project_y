@@ -1,0 +1,42 @@
+.container
+{
+    width:100%;
+    height:100px;
+    display: grid;
+    align-items: center;
+    grid-template:
+    '. home activity todo . user';
+}
+
+.filter
+{
+    filter: invert(21%) sepia(16%) saturate(1225%) hue-rotate(169deg) brightness(90%) contrast(87%);
+}
+
+.home
+{
+    grid-area: home;
+    text-align: center;
+}
+.activity
+{
+    grid-area: activity;
+    text-align: center;
+}
+.todo
+{
+    grid-area: todo;
+    text-align: center;
+}
+.user
+{
+    grid-area: user;
+    text-align: center;
+}
+.user>img
+{
+    padding: .2rem;
+    border-radius: 2rem;
+    background-color: #FFFFFF;
+    height:50px;
+}
