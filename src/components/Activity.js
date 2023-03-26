@@ -1,3 +1,4 @@
+import style from '../css/activity.module.css'
 import { useState, useEffect } from "react";
 
 const Activity = ()=>
@@ -16,6 +17,8 @@ const Activity = ()=>
     return(
         <>
         {task.activity}
+        {task.price}
+        
         </>
     );
 }

@@ -38,5 +38,18 @@
     padding: .2rem;
     border-radius: 2rem;
     background-color: #FFFFFF;
-    height:50px;
+}
+
+@media(max-width:500px) {
+    .user>img
+    {
+        height:25px;
+    }
+}
+
+@media (min-width:501px) {
+    .user>img
+    {
+        height:50px;
+    }
 }
