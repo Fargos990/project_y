@@ -75,3 +75,47 @@ input:focus
   background: none repeat scroll 0 0 #FFFFFF;
   outline-width: 0;
 }
+
+input[type=checkbox]
+{
+  display:none;
+}
+
+input[type=checkbox] + label
+{
+  margin:0 1rem;
+}
+
+input[type=checkbox] + label span::before, input[type=checkbox] + label span::after
+{
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  
+  
+  z-index: 1;
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  border: 2px solid #FF4040;
+}
+
+input[type=checkbox] + label span::after
+{
+  z-index:0;
+  border:none;
+}
+
+input[type=checkbox]:checked + label span::before
+{
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  background: #4CBB17;;
+  border: #4CBB17;
+}

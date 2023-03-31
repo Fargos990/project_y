@@ -3,6 +3,7 @@ import style from '../css/todo.module.css'
 import { useState, useRef } from "react";
 
 import Popup  from './Popup';
+import TodoList from './TodoList';
 
 const Todo = ()=>
 {
@@ -25,6 +26,7 @@ const Todo = ()=>
                     
                     const task = 
                     {
+                        key: Date.now(),
                         name: name.current.value,
                         desc: textArea.current.value,
                         date: date.current.value,
@@ -72,6 +74,8 @@ const Todo = ()=>
                 }} ></input></label>
             </form>   
             <Popup visible={isVisble} name={namePopup}></Popup>
+
+            <TodoList todos={tasks}></TodoList>
         </>
     );
 }
