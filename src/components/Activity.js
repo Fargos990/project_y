@@ -15,11 +15,10 @@ const Activity = ()=>
     },[])
 
     return(
-        <>
+        <div className={style.container}>
         {task.activity}
         {task.price}
-        
-        </>
+        </div>
     );
 }
 
