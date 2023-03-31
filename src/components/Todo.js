@@ -1,17 +1,47 @@
-import style from '../css/activity.module.css'
-import { useState } from "react";
+import style from '../css/todo.module.css'
+
+import { useState, useRef } from "react";
+
+import Popup  from './Popup';
 
 const Todo = ()=>
 {
-    
+    const [tasks, setTasks] = useState([]);
+
+    const [isVisble, setVisible] = useState(false);
+    const [namePopup ,setNamePopup] = useState("wrong");
+
+    const name = useRef(null);
+    const textArea = useRef(null);
+    const date = useRef(null);
+
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
     return(
         <>
-            <form onSubmit={(e)=>
+            <form className={style.container}   onSubmit={(e)=>
                 {
                     e.preventDefault();
+                    setNamePopup("wrong")
+                    if(date.current.value === "" || name.current.value === "") return;
+                    
+                    const task = 
+                    {
+                        name: name.current.value,
+                        desc: textArea.current.value,
+                        date: date.current.value,
+                        is_done: false,
+                    }
+                    setTasks([...tasks, task]);
+                    setNamePopup("right");
+
+                    name.current.value = null;
+                    textArea.current.value = null;
+                    date.current.value = null;
                     
                 }}>
-                <label>Name: <input type="text" onChange={(e)=>
+                <div className={style.holder}>
+                <label className={style.name}>Name: <input type="text" ref={name} maxLength={25} onChange={(e)=>
                     {
                         if(e.target.value === "" && e.target.value[0] === " ") return;
 
@@ -29,10 +59,21 @@ const Todo = ()=>
                         }
                         
                     }}></input></label>
-                <label>Description: <textarea></textarea></label>     
-                <label>Date: <input type="date"></input> </label>
-                <label><input type="submit" value="Send"></input></label>
+                <label className={style.date}>Date: <input type="date" ref={date}></input> </label>
+                </div>
+                <label className={style.description}><span>Description:</span><br/> <textarea ref={textArea}></textarea></label>   
+                <label className={style.send}><input type="submit" className={isVisble ? "disable" : "enable"} value="Add" onClick={
+                    ()=> {
+                        if(isVisble) return
+                        setVisible(true);
+                        setTimeout(()=>{
+                            setVisible(false);
+                        }, 1001)
+
+
+                }} ></input></label>
             </form>   
+            <Popup visible={isVisble} name={namePopup}></Popup>
         </>
     );
 }

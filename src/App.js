@@ -1,5 +1,5 @@
 import './App.css';
-import Activity from './components/Activity';
+// import Activity from './components/Activity';
 import Navbar from './components/Navigation';
 import Todo from './components/Todo';
 
