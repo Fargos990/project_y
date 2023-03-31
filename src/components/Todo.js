@@ -15,8 +15,6 @@ const Todo = ()=>
     const textArea = useRef(null);
     const date = useRef(null);
 
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-
     return(
         <>
             <form className={style.container}   onSubmit={(e)=>
