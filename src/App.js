@@ -1,7 +1,7 @@
 import './App.css';
 // import Activity from './components/Activity';
 import Navbar from './components/Navigation';
-import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
     <Navbar />
     {/* <Activity /> */}
-    <Todo />
+    <TodoForm />
     </>
   );
 }

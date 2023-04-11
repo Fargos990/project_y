@@ -1,82 +1,37 @@
 import style from '../css/todo.module.css'
+import arrow from '../images/iconmonstr-arrow-68.svg'
 
-import { useState, useRef } from "react";
 
-import Popup  from './Popup';
-import TodoList from './TodoList';
+import { useState } from "react";
 
-const Todo = ()=>
+const Todo = ({keyX, name, date , desc, isDone})=>
 {
-    const [tasks, setTasks] = useState([]);
 
-    const [isVisble, setVisible] = useState(false);
-    const [namePopup ,setNamePopup] = useState("wrong");
-
-    const name = useRef(null);
-    const textArea = useRef(null);
-    const date = useRef(null);
-
+    const[showDesc, setShowDesc] = useState(false);
     return(
-        <>
-            <form className={style.container}   onSubmit={(e)=>
+    <>
+        <span className={style.arrow} style={{cursor:"pointer"} } onClick={(e)=>{
+                if(e.target.style.transform !== "rotate(-90deg)")
                 {
-                    e.preventDefault();
-                    setNamePopup("wrong")
-                    if(date.current.value === "" || name.current.value === "") return;
+                    e.target.style.transform="rotate(-90deg)"
+                    setShowDesc(true);
+                } 
+                else
+                {
+                    e.target.style.transform="rotate(180deg)"
+                    setShowDesc(false);
+                }
                     
-                    const task = 
-                    {
-                        key: Date.now(),
-                        name: name.current.value,
-                        desc: textArea.current.value,
-                        date: date.current.value,
-                        is_done: false,
-                    }
-                    setTasks([...tasks, task]);
-                    setNamePopup("right");
+                
+            }}
 
-                    name.current.value = null;
-                    textArea.current.value = null;
-                    date.current.value = null;
-                    
-                }}>
-                <div className={style.holder}>
-                <label className={style.name}>Name: <input type="text" ref={name} maxLength={25} onChange={(e)=>
-                    {
-                        if(e.target.value === "" && e.target.value[0] === " ") return;
-
-                        e.target.value = e.target.value.toLowerCase();
-                        
-                        const words = e.target.value.split(" ");
-                        for(let i = 0; i < words.length; i++)
-                        {
-                            if(words[i][0] !== undefined)
-                            words[i] = words[i][0].toUpperCase() + words[i].substring(1);
-                        }   
-                        for(let i = 0;i < words.length; i++)
-                        {
-                            e.target.value = e.target.value.replace(words[i].toLowerCase(), words[i]);
-                        }
-                        
-                    }}></input></label>
-                <label className={style.date}>Date: <input type="date" ref={date}></input> </label>
-                </div>
-                <label className={style.description}><span>Description:</span><br/> <textarea ref={textArea}></textarea></label>   
-                <label className={style.send}><input type="submit" className={isVisble ? "disable" : "enable"} value="Add" onClick={
-                    ()=> {
-                        if(isVisble) return
-                        setVisible(true);
-                        setTimeout(()=>{
-                            setVisible(false);
-                        }, 1001)
-
-
-                }} ></input></label>
-            </form>   
-            <Popup visible={isVisble} name={namePopup}></Popup>
-
-            <TodoList todos={tasks}></TodoList>
-        </>
+                ><img src={arrow} alt="open" className={style.rotate}></img></span>
+             <span className={style.string}>{name}, {date}</span> 
+             
+             <input type="checkbox" id={keyX} value={name} 
+            defaultChecked={isDone}></input><label htmlFor={keyX} className={style.checkbox}><span></span></label>
+            <div className={showDesc ? style.showDesc : style.hideDesc}><span>{desc}</span></div>
+    </>
     );
 }
 
