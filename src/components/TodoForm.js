@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 
 import Popup  from './Popup';
 import TodoList from './TodoList';
+import { Navbar } from './Navigation';
 
 const TodoForm = ()=>
 {
@@ -18,6 +19,7 @@ const TodoForm = ()=>
 
     return(
         <>
+        <Navbar></Navbar>
             <form className={style.container}   onSubmit={(e)=>
                 {
                     e.preventDefault();

@@ -1,5 +1,6 @@
 import style from '../css/activity.module.css'
 import { useState, useEffect } from "react";
+import { Navbar } from './Navigation';
 
 const Activity = ()=>
 {
@@ -15,10 +16,14 @@ const Activity = ()=>
     },[])
 
     return(
+
+        <>
+        <Navbar></Navbar>
         <div className={style.container}>
         {task.activity}
         {task.price}
         </div>
+        </>
     );
 }
 

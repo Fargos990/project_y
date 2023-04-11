@@ -3,7 +3,8 @@ import Todo from './Todo';
 
 const TodoList = ({todos = []})=>
 {
-    return(<div className={style.container}><ul className={style.list}>
+    return(<div className={style.container}>
+        <ul className={style.list}>
         {todos.map((e)=>
         {
             return <li className={style.element} key={e.key}>
