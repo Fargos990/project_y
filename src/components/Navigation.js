@@ -3,14 +3,14 @@ import person from '../images/person.svg'
 import Activity from './Activity';
 import TodoForm from './TodoForm';
 
-import { createBrowserRouter, RouterProvider, Link, Router } from "react-router-dom";
-import TodoList from './TodoList';
+import { createBrowserRouter, Link } from "react-router-dom";
 import ErrorPage from './ErrorPage';
+import Home from './HomePage';
 
 export const router = createBrowserRouter([
     {
       path: "/",
-      element:<TodoList />,
+      element:<Home />,
     },
     {
         path: "/todo",

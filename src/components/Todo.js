@@ -4,9 +4,8 @@ import arrow from '../images/iconmonstr-arrow-68.svg'
 
 import { useState } from "react";
 
-const Todo = ({keyX, name, date , desc, isDone})=>
+const Todo = ({keyX, name, date , desc, isDone, changeState})=>
 {
-
     const[showDesc, setShowDesc] = useState(false);
     return(
     <>
@@ -29,7 +28,11 @@ const Todo = ({keyX, name, date , desc, isDone})=>
              <span className={style.string}>{name}, {date}</span> 
              
              <input type="checkbox" id={keyX} value={name} 
-            defaultChecked={isDone}></input><label htmlFor={keyX} className={style.checkbox}><span></span></label>
+            defaultChecked={isDone} onClick={()=>
+            {
+                changeState(keyX)
+            }}></input>
+            <label htmlFor={keyX} className={style.checkbox}><span></span></label>
             <div className={showDesc ? style.showDesc : style.hideDesc}><span>{desc}</span></div>
     </>
     );

@@ -8,7 +8,8 @@ import { Navbar } from './Navigation';
 
 const TodoForm = ()=>
 {
-    const [tasks, setTasks] = useState([]);
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    const [tasks, setTasks] = useState(todos || []);
 
     const [isVisble, setVisible] = useState(false);
     const [namePopup ,setNamePopup] = useState("wrong");
@@ -35,6 +36,7 @@ const TodoForm = ()=>
                         is_done: false,
                     }
                     setTasks([...tasks, task]);
+                    localStorage.setItem("todos",JSON.stringify([...tasks, task]))
                     setNamePopup("right");
 
                     name.current.value = null;
