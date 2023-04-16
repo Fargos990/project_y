@@ -29,7 +29,6 @@ const TodoList = ({todos = [], setTasks, isHomepage = false})=>
             return e.key !== id;
         }))
 
-
         //LocalStorage nie chcial przyjac zupdetowanych
         //taskow, dlatego usuwam z blizniaczej tablicy
         //i ja przypisuje do localStorage
