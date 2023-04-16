@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.939a668f.css",
+    "main.js": "/react-gh-pages/static/js/main.2a26fd27.js",
+    "static/js/787.cbd24b18.chunk.js": "/react-gh-pages/static/js/787.cbd24b18.chunk.js",
+    "index.html": "/react-gh-pages/index.html",
+    "static/media/check-mark-svgrepo-com.svg": "/react-gh-pages/static/media/check-mark-svgrepo-com.17b7d44452c89972613eff33a4229332.svg",
+    "static/media/wrong-svgrepo-com.svg": "/react-gh-pages/static/media/wrong-svgrepo-com.71ac8dd1d54d99dc38f931d5e9406a40.svg",
+    "static/media/person.svg": "/react-gh-pages/static/media/person.90c18257d84f487072f09eba4f8206e6.svg",
+    "static/media/edit_icon.svg": "/react-gh-pages/static/media/edit_icon.8d2fec10606d954334fcf229b447a76c.svg",
+    "static/media/iconmonstr-arrow-68.svg": "/react-gh-pages/static/media/iconmonstr-arrow-68.6bd8714bbd4e679cbb770f75c352d27a.svg",
+    "static/media/delete_icon.svg": "/react-gh-pages/static/media/delete_icon.44539dc8de0c51adee8a70642d5641a8.svg",
+    "main.939a668f.css.map": "/react-gh-pages/static/css/main.939a668f.css.map",
+    "main.2a26fd27.js.map": "/react-gh-pages/static/js/main.2a26fd27.js.map",
+    "787.cbd24b18.chunk.js.map": "/react-gh-pages/static/js/787.cbd24b18.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.939a668f.css",
+    "static/js/main.2a26fd27.js"
+  ]
+}
