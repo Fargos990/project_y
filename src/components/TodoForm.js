@@ -5,8 +5,9 @@ import { useState, useRef } from "react";
 import Popup  from './Popup';
 import TodoList from './TodoList';
 import { Navbar } from './Navigation';
+import { validateName } from './Miscellaneous';
 
-const TodoForm = ()=>
+const TodoForm = () =>
 {
     const todos = JSON.parse(localStorage.getItem('todos'));
     const [tasks, setTasks] = useState(todos || []);
@@ -21,7 +22,7 @@ const TodoForm = ()=>
     return(
         <>
         <Navbar></Navbar>
-            <form className={style.container}   onSubmit={(e)=>
+            <form className={style.container} onSubmit={(e)=>
                 {
                     e.preventDefault();
                     setNamePopup("wrong")
@@ -45,24 +46,8 @@ const TodoForm = ()=>
                     
                 }}>
                 <div className={style.holder}>
-                <label className={style.name}>Name: <input type="text" ref={name} maxLength={25} onChange={(e)=>
-                    {
-                        if(e.target.value === "" && e.target.value[0] === " ") return;
-
-                        e.target.value = e.target.value.toLowerCase();
-                        
-                        const words = e.target.value.split(" ");
-                        for(let i = 0; i < words.length; i++)
-                        {
-                            if(words[i][0] !== undefined)
-                            words[i] = words[i][0].toUpperCase() + words[i].substring(1);
-                        }   
-                        for(let i = 0;i < words.length; i++)
-                        {
-                            e.target.value = e.target.value.replace(words[i].toLowerCase(), words[i]);
-                        }
-                        
-                    }}></input></label>
+                <label className={style.name}>Name: <input type="text" ref={name} maxLength={25} 
+                onChange={(e)=>{ validateName(e); }}></input></label>
                 <label className={style.date}>Date: <input type="date" ref={date}></input> </label>
                 </div>
                 <label className={style.description}><span>Description:</span><br/> <textarea ref={textArea}></textarea></label>   
@@ -79,7 +64,7 @@ const TodoForm = ()=>
             </form>   
             <Popup visible={isVisble} name={namePopup}></Popup>
 
-            <TodoList todos={tasks} setTasks={setTasks}></TodoList>
+            <TodoList todos={tasks} setTasks={setTasks} isHomepage={false}></TodoList>
         </>
     );
 }

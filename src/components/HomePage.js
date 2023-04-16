@@ -9,7 +9,6 @@ const Home = ()=>
 
    const [tasks, setTasks] = useState(todos || []);
 
-   console.log(todos);
    if(todos == null || todos.length === 0)
    {
       return (
@@ -22,7 +21,7 @@ const Home = ()=>
    return (
     <>
     <Navbar></Navbar>
-    <TodoList todos={tasks} setTasks={setTasks}></TodoList>
+    <TodoList todos={tasks} setTasks={setTasks} isHomepage={true}></TodoList>
     </>
    ) 
 }

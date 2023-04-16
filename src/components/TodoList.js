@@ -1,7 +1,7 @@
 import style from '../css/todoList.module.css'
 import Todo from './Todo';
 
-const TodoList = ({todos = [], setTasks})=>
+const TodoList = ({todos = [], setTasks, isHomepage = false})=>
 {
     const changeState = (id) =>
     {
@@ -23,7 +23,7 @@ const TodoList = ({todos = [], setTasks})=>
         {
             return e.key !== id;
         }))
-        
+
         const arr = todos;
         arr.filter((v, i, arr)=>
         {
@@ -39,14 +39,14 @@ const TodoList = ({todos = [], setTasks})=>
         
     }
 
-
     return(<div className={style.container}>
         <ul className={style.list}>
         {todos.map((e)=>
         {
             return <li className={style.element} key={e.key}>
                 <Todo key={e.key} keyX={e.key} name={e.name} date={e.date} desc={e.desc} 
-                isDone={e.is_done} changeState={changeState} removeItem={removeItem}></Todo>
+                isDone={e.is_done} changeState={changeState} removeItem={removeItem} isHomepage={isHomepage}
+                tasks={todos} setTasks={setTasks}></Todo>
             </li>
         })}
     </ul></div>);
