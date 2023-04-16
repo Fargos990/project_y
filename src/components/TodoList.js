@@ -5,6 +5,9 @@ const TodoList = ({todos = [], setTasks, isHomepage = false})=>
 {
     const changeState = (id) =>
     {
+        //Funkcja powoduje zmienienie stanu tego czy todos
+        //zostal juz wykonany
+        //Dziala na przestrzeni wszystkich komponentow
         setTasks(todos.filter((e)=>
         {
             if(e.key === id)
@@ -19,11 +22,17 @@ const TodoList = ({todos = [], setTasks, isHomepage = false})=>
     const removeItem = (id) =>
     {
         
+        //Nie wiem dlaczego ale tak
+        //to trzeba bylo zrobic
         setTasks(todos.filter((e)=>
         {
             return e.key !== id;
         }))
 
+
+        //LocalStorage nie chcial przyjac zupdetowanych
+        //taskow, dlatego usuwam z blizniaczej tablicy
+        //i ja przypisuje do localStorage
         const arr = todos;
         arr.filter((v, i, arr)=>
         {
@@ -41,6 +50,7 @@ const TodoList = ({todos = [], setTasks, isHomepage = false})=>
 
     return(<div className={style.container}>
         <ul className={style.list}>
+            {/*Wypisanie elementow todos'a */}
         {todos.map((e)=>
         {
             return <li className={style.element} key={e.key}>

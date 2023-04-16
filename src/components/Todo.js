@@ -12,8 +12,12 @@ const Todo = ({keyX, name, date , desc, isDone, changeState, removeItem, isHomep
     const [showDesc, setShowDesc] = useState(false);
     const [triggerEdit, setTriggerEdit] = useState(false);
 
+    //Skrocony if, bo jesli jest homepage to nie mozna edytowac todosa
     return isHomepage ? (
             <>
+        {/* 
+        Sluzy to po to czy ma sie pokazac description czy nie
+        Czasami sie to buguje i ja nw czemu*/}
         <span className={style.arrow} style={{cursor:"pointer"} } onClick={(e)=>{
                 if(e.target.style.transform !== "rotate(-90deg)")
                 {
@@ -35,6 +39,7 @@ const Todo = ({keyX, name, date , desc, isDone, changeState, removeItem, isHomep
              <input type="checkbox" id={keyX} value={name} 
             defaultChecked={isDone} onClick={()=>
             {
+                //Funkcja jest w todoFormie
                 changeState(keyX)
             }}></input>
             <label htmlFor={keyX} className={style.checkbox}><span></span></label>
@@ -42,14 +47,17 @@ const Todo = ({keyX, name, date , desc, isDone, changeState, removeItem, isHomep
                 <span className={style.desc}>{desc}</span>
                 
                 <button className={style.delete}>
-                    <img src={delete_icon} alt='delete' onClick={()=>{removeItem(keyX)}}></img>
+                    <img src={delete_icon} alt='delete' onClick={()=>{
+                        //Funkcja jest w todoFormie
+                        removeItem(keyX)
+                        }}></img>
                 </button>
 
             </div>
     </>
         )
     : (
-    <>
+    <>{/*Praktycznie powtorzenie kodu z wylaczeniem przycisku edita*/}
         <span className={style.arrow} style={{cursor:"pointer"} } onClick={(e)=>{
                 if(e.target.style.transform !== "rotate(-90deg)")
                 {

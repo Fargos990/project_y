@@ -2,12 +2,14 @@ import { useRef } from 'react';
 import style from '../css/edit.module.css'
 import { validateName } from './Miscellaneous';
 
+//Komponent odpowiadajacy za edytowanie todosow
 const Edit = ({trigger, nameValue, dateValue , descValue, setTriggerEdit, todos, setTodos, id})=>
 {
     const name = useRef(null);
     const date = useRef(null);
     const desc = useRef(null);
 
+    //Skrocony if, wyswietla sie kiedy trigger jest true
     return trigger ? (
     <div className={style.world}>
         <div className={style.container}>

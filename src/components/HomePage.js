@@ -3,6 +3,7 @@ import style from '../css/homePage.module.css'
 import TodoList from "./TodoList";
 import { useState } from "react";
 
+//Strona 'glowna'
 const Home = ()=>
 {   
    const todos = JSON.parse(localStorage.getItem('todos'));

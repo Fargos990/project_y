@@ -2,7 +2,7 @@ import { Navbar } from "./Navigation";
 
 const ErrorPage = ()=>
 {
-
+    //Strona ktora sie wyswietla podczas erroru sciezki
     return (
         <div>
             <Navbar></Navbar>

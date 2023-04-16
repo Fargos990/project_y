@@ -7,6 +7,7 @@ import { createBrowserRouter, Link } from "react-router-dom";
 import ErrorPage from './ErrorPage';
 import Home from './HomePage';
 
+//Sciezki do wybranych komponentow
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -26,8 +27,9 @@ export const router = createBrowserRouter([
     },
 ]);
 
+//Element navbar obslugujacy poruszanie sie po stronie
 export const Navbar = ()=>
-{
+{    
     return(
         <>
         <nav className={style.container}>

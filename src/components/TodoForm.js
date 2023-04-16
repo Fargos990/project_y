@@ -9,6 +9,7 @@ import { validateName } from './Miscellaneous';
 
 const TodoForm = () =>
 {
+    //Mozna by rzec ze jest to glowny komponent
     const todos = JSON.parse(localStorage.getItem('todos'));
     const [tasks, setTasks] = useState(todos || []);
 
@@ -36,6 +37,7 @@ const TodoForm = () =>
                         date: date.current.value,
                         is_done: false,
                     }
+
                     setTasks([...tasks, task]);
                     localStorage.setItem("todos",JSON.stringify([...tasks, task]))
                     setNamePopup("right");
@@ -47,10 +49,15 @@ const TodoForm = () =>
                 }}>
                 <div className={style.holder}>
                 <label className={style.name}>Name: <input type="text" ref={name} maxLength={25} 
-                onChange={(e)=>{ validateName(e); }}></input></label>
+                onChange={(e)=>
+                { validateName(e); 
+                }}></input></label>
                 <label className={style.date}>Date: <input type="date" ref={date}></input> </label>
                 </div>
                 <label className={style.description}><span>Description:</span><br/> <textarea ref={textArea}></textarea></label>   
+                {/* dojscie do tego kodu zajelo mi 2.5 godziny, powoduje on wylaczenie 
+                przyciskow podczas przesylania formularza. Jakby tego nie bylo
+                to by sie dalo spamowac popup'em*/}
                 <label className={style.send}><input type="submit" className={isVisble ? "disable" : "enable"} value="Add" onClick={
                     ()=> {
                         if(isVisble) return

@@ -3,6 +3,8 @@ import style from '../css/popup.module.css'
 import right from "../images/check-mark-svgrepo-com.svg"
 import wrong from "../images/wrong-svgrepo-com.svg"
 
+
+//Popup zeby ladnie wyswietlalo czy mozna dodac dana aktywnosc
 const Popup = ({name, visible})=>
 {
     if(!visible) return;

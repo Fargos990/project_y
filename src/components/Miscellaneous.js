@@ -1,3 +1,4 @@
+//Funkcja walidujaca nazwe todos'a
 const validateName = (e)=>
 {
     if(e.target.value === "" && e.target.value[0] === " ") return;
@@ -16,4 +17,4 @@ const validateName = (e)=>
     }
 }
 
-export {validateName}
+export { validateName }
