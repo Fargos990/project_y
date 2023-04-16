@@ -6,7 +6,7 @@ import delete_icon from '../images/delete_icon.svg'
 
 import { useState } from "react";
 
-const Todo = ({keyX, name, date , desc, isDone, changeState})=>
+const Todo = ({keyX, name, date , desc, isDone, changeState, removeItem})=>
 {
     const[showDesc, setShowDesc] = useState(false);
     return(
@@ -43,7 +43,7 @@ const Todo = ({keyX, name, date , desc, isDone, changeState})=>
                 </button>
                 
                 <button className={style.delete}>
-                    <img src={delete_icon} alt='delete'></img>
+                    <img src={delete_icon} alt='delete' onClick={()=>{removeItem(keyX)}}></img>
                 </button>
 
             </div>

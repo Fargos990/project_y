@@ -79,7 +79,7 @@ const TodoForm = ()=>
             </form>   
             <Popup visible={isVisble} name={namePopup}></Popup>
 
-            <TodoList todos={tasks}></TodoList>
+            <TodoList todos={tasks} setTasks={setTasks}></TodoList>
         </>
     );
 }
