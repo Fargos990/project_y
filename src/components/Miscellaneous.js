@@ -17,4 +17,16 @@ const validateName = (e)=>
     }
 }
 
-export { validateName }
+//Funkcja do generowania aktywnosci
+const generateActivity = (setActivity)=>
+{
+    fetch("http://www.boredapi.com/api/activity/")
+    .then((response)=>response.json())
+    .then((data)=>
+    {
+        setActivity(data);
+    })
+}
+
+
+export { validateName, generateActivity }
