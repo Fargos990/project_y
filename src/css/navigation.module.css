@@ -16,16 +16,19 @@
 
 .home
 {
+    padding:1rem;
     grid-area: home;
     text-align: center;
 }
 .activity
 {
+    padding:1rem;
     grid-area: activity;
     text-align: center;
 }
 .todo
 {
+    padding:1rem;
     grid-area: todo;
     text-align: center;
 }
@@ -53,4 +56,9 @@
     {
         height:50px;
     }
+}
+
+.active
+{
+    border-bottom:2px solid black;
 }

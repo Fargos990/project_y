@@ -1,7 +1,37 @@
 .container{
-    aspect-ratio: 16/9;
+    margin-top:10%;
+    /* aspect-ratio: 16/9; */
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    font-size:2rem;
+}
+.container > span
+{
+    padding:1rem;
+    display:flex;
+    justify-content: center;
+    flex-basis: 100%;
+}
+.container > span > input
+{
+    font-size:1.2rem;
+    width:10%;
+}
+
+.container > span > button
+{
+    grid-area: 3 / 3 / 4 / 4;
+    padding:.7rem 1.5rem;
+    display:block;
+    cursor: pointer;
+    transition: background-color 0.2s ease 0s;
+    border-radius: 1.5rem;
+    background-color: #ddd;
+    border:1px solid #ddd;
+}
+.container > span> button:hover
+{
+    background: none repeat scroll 0 0 #ffffff;
 }

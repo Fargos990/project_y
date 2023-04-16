@@ -3,7 +3,7 @@ import person from '../images/person.svg'
 import Activity from './Activity';
 import TodoForm from './TodoForm';
 
-import { createBrowserRouter, Link } from "react-router-dom";
+import { createBrowserRouter, NavLink } from "react-router-dom";
 import ErrorPage from './ErrorPage';
 import Home from './HomePage';
 
@@ -33,9 +33,12 @@ export const Navbar = ()=>
     return(
         <>
         <nav className={style.container}>
-            <Link to='/' className={style.home} >HOME</Link>
-            <Link to='/activity'className={style.activity} >ACTIVITY</Link>
-            <Link to='/todo' className={style.todo} >TODO</Link>
+            <NavLink to='/' className={({ isActive }) =>
+    isActive ? `${style.home} ${style.active}` : `${style.home}`}>HOME</NavLink>
+            <NavLink to='/activity'className={({ isActive }) =>
+    isActive ? `${style.activity} ${style.active}` : `${style.activity}`} >ACTIVITY</NavLink>
+            <NavLink to='/todo' className={({ isActive }) =>
+    isActive ? `${style.todo} ${style.active}` : `${style.todo}`} >TODO</NavLink>
             <p className={`${style.user} ${style.filter}`}> <img src={person} alt="user_icon"></img> </p>
         </nav>
         </>

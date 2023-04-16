@@ -35,6 +35,8 @@ const Activity = ()=>
         setTasks([...tasks, task]);
         console.log(task);
         localStorage.setItem("todos",JSON.stringify([...tasks, task]))
+        date.current.value = "";
+        generateActivity(setActivity);
     }
 
     return(
@@ -42,18 +44,19 @@ const Activity = ()=>
         <>
         <Navbar></Navbar>
         <div className={style.container}>
-        {activity.activity}
-        {activity.price}
-        <input type='date' ref={date}></input>
-        <button onClick={()=>
+        <span>Name: {activity.activity}</span>
+        <span>Type: {activity.type}</span>
+        <span>Accessibility: {activity.accessibility}</span>
+        <span><input type='date' ref={date}></input></span>
+        <span><button onClick={()=>
             {
                 addToTasks();
-            }}>Add To Tasks</button>
+            }}>Add To Tasks</button></span>
 
-        <button onClick={()=>
+        <span><button onClick={()=>
             {
                 generateActivity(setActivity);
-            }}>Generate Again</button>
+            }}>Generate Again</button></span>
             
         </div>
         </>
