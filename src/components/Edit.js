@@ -9,6 +9,7 @@ const Edit = ({trigger, nameValue, dateValue , descValue, setTriggerEdit, todos,
     const desc = useRef(null);
 
     return trigger ? (
+    <div className={style.world}>
         <div className={style.container}>
              <div className={style.holder}>
                 <label className={style.name}>Name: <input type="text" maxLength={25} 
@@ -27,6 +28,9 @@ const Edit = ({trigger, nameValue, dateValue , descValue, setTriggerEdit, todos,
                 }}>X</button>
             <button className={style.edit} onClick={()=>
                 {
+                    if(name.current.value === '' || date.current.value === '')
+                        return
+
                     setTodos(todos.filter((e)=>
                     {
                         if(e.key === id)
@@ -43,6 +47,7 @@ const Edit = ({trigger, nameValue, dateValue , descValue, setTriggerEdit, todos,
                     setTriggerEdit(false);
                 }}>Edit</button>
         </div>
+    </div>
     ) : "";
 }
 
