@@ -1,5 +1,4 @@
 import style from '../css/navigation.module.css'
-import person from '../images/person.svg'
 import Activity from './Activity';
 import TodoForm from './TodoForm';
 
@@ -39,7 +38,6 @@ export const Navbar = ()=>
     isActive ? `${style.activity} ${style.active}` : `${style.activity}`} >ACTIVITY</NavLink>
             <NavLink to='/todo' className={({ isActive }) =>
     isActive ? `${style.todo} ${style.active}` : `${style.todo}`} >TODO</NavLink>
-            <p className={`${style.user} ${style.filter}`}> <img src={person} alt="user_icon"></img> </p>
         </nav>
         </>
     )

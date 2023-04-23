@@ -1,9 +1,10 @@
+@media(min-width:1810px) {
 .world
 {
     width:100%;
-    height:100%;
+    height:100svh;
     background-color: rgba(0, 0, 0, 0.403);
-    position: absolute;
+    position: fixed;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
@@ -65,4 +66,90 @@
 .edit:hover
 {
     background: none repeat scroll 0 0 #ffffff;
+}
+
+}
+
+@media(max-width:1809px)
+{
+    .world
+    {
+        width:100%;
+        height:100vh;
+        background-color: rgba(0, 0, 0, 0.403);
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        z-index: 98;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container
+    {
+        width:95%;
+        padding:1.3rem;
+        border-radius: 1rem;
+        background-color: #eee;
+        z-index:99;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(4, auto);
+        grid-row-gap: .2rem;
+    }
+    .holder
+    {
+        grid-area: 1 / 1 / 3 / 2;
+        display:flex;
+        flex-direction: column;
+    }
+    .name
+    {
+        margin:.3rem 0;
+    }
+    .date
+    {
+        margin: .3rem 0;
+    }
+    .desc
+    {
+        grid-area: 3 / 1 / 4 / 3;
+    }
+    .close
+    {
+        width:50%;
+        grid-area: 1 / 2 / 2 / 3;
+        padding:.3rem .2rem;
+        font-size:.8rem;
+        border-radius: 1rem;
+        border:1px solid black;
+        transition: ease-in .2s;
+    }
+    .close:hover
+    {
+        border:1px solid white;
+        background-color: #000;
+        color:#fff;
+    }
+
+    .edit
+    {
+        width:60%;
+        grid-area: 4 / 2 / 5 / 3;
+        padding:.5rem .7rem;
+        display:block;
+        cursor: pointer;
+        transition: background-color 0.2s ease 0s;
+        border-radius: 1.5rem;
+        background-color: #ddd;
+        border:1px solid #ddd;
+    }
+
+    .edit:hover
+    {
+        background: none repeat scroll 0 0 #ffffff;
+    }
+    
 }
