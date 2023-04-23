@@ -5,8 +5,10 @@
     height:100px;
     display: grid;
     align-items: center;
+    margin-bottom:5rem;
     grid-template:
-    '. home activity todo . user';
+    'logo home activity todo . .';
+    
 }
 
 .filter
@@ -32,33 +34,19 @@
     grid-area: todo;
     text-align: center;
 }
-.user
-{
-    grid-area: user;
-    text-align: center;
-}
-.user>img
-{
-    padding: .2rem;
-    border-radius: 2rem;
-    background-color: #FFFFFF;
-}
-
-@media(max-width:500px) {
-    .user>img
-    {
-        height:30px;
-    }
-}
-
-@media (min-width:501px) {
-    .user>img
-    {
-        height:50px;
-    }
-}
 
 .active
 {
     border-bottom:2px solid black;
+}
+.logo
+{
+    grid-area: logo;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo > img
+{
+    width:200px;
 }

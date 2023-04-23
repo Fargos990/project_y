@@ -1,6 +1,7 @@
 import style from '../css/navigation.module.css'
 import Activity from './Activity';
 import TodoForm from './TodoForm';
+import logo from "../images/LogoToDo.png"
 
 import { createBrowserRouter, NavLink } from "react-router-dom";
 import ErrorPage from './ErrorPage';
@@ -38,6 +39,7 @@ export const Navbar = ()=>
     isActive ? `${style.activity} ${style.active}` : `${style.activity}`} >ACTIVITY</NavLink>
             <NavLink to='/todo' className={({ isActive }) =>
     isActive ? `${style.todo} ${style.active}` : `${style.todo}`} >TODO</NavLink>
+        <span className={style.logo}><img src={logo} alt="logo"></img></span>
         </nav>
         </>
     )
